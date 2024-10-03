@@ -17,12 +17,10 @@ public class TareaEvaluativaUD1_03 {
     public static void main(String[] args) {
 
         File inpFile = new File("C://Users//Jasio//Documents//Birthl//CV_Jasmany.pdf");
-
         int [] pdfHeader = {37, 80, 68, 70};
-
         try {
+            // lectura del fichero PDF
             InputStream inputStream = new FileInputStream(inpFile);
-
             int [] saveFirstHeader = new int[4];
             for (int i = 0; i < 4; i++) {
                 saveFirstHeader[i] = inputStream.read();
@@ -40,6 +38,5 @@ public class TareaEvaluativaUD1_03 {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
