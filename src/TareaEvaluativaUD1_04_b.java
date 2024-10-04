@@ -7,35 +7,27 @@ import java.util.Scanner;
 public class TareaEvaluativaUD1_04_b {
     public static void main(String[] args) {
         final int long_registro = 168;
-
-
         try {
             File file = new File("Marvel.dat");
             RandomAccessFile raf = new RandomAccessFile(file, "rw");
-
             int idFichero, pesoAnterior, pesoActual, alturaFichero, diferenciaPeso, posicion;
             String dniFichero, nombreFichero, identidadFichero, tipoFichero;
             char[] aux = new char[20];
-
             Scanner sn = new Scanner(System.in);
-
             System.out.println("Introduzca el DNI (con letra) del personaje para el control de peso: ");
             String dniConsola = sn.nextLine();
-
             posicion = 0;
             boolean personajeEncontrado = false;
 
-            while (posicion < file.length()) {
+            while (posicion < raf.length()) {
                 raf.seek(posicion);
                 idFichero = raf.readInt();
-
 
                 aux = new char[9];
                 for (int i = 0; i < 9; i++) {
                     aux[i] = raf.readChar();
                 }
                 dniFichero = new String(aux).trim();
-
 
                 if (dniFichero.equals(dniConsola)) {
                     personajeEncontrado = true;
